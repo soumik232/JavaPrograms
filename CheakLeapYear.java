@@ -22,7 +22,6 @@ class CheakLeapYear
 		int count =0;
 		while(y>0)
 		{
-			//int b= y%10;
 			y = y/10;
 			count++;
 		}
