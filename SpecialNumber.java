@@ -1,3 +1,4 @@
+//this program only applicable for two digit.
 import java.util.Scanner;
 class SpecialNumber
 {
