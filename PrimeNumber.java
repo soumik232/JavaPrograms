@@ -1,7 +1,7 @@
-import java.util.Scanner;
-class PrimeNUmber
+
+public class PrimeNumber
 {
-	public static boolean isPrime(int num)
+	public static boolean isPrime(int n)
 	{
 		int i =2;
 		while(i<n/2)
@@ -10,6 +10,6 @@ class PrimeNUmber
 				break;
 			i++;
 		}
-		return i>n/2;
+		return i>=n/2;
 	}
 }
