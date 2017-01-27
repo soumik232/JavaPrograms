@@ -8,9 +8,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
+import com.bridgeLabz.programs.Stack;
+
 public class Utility 
 {
-
+	Stack st;
 	Scanner sc = new Scanner(System.in);
 	String temp="";
 	private long startTime;
@@ -19,7 +21,16 @@ public class Utility
 	private Node start;
 	private Node last;
 	public int size;
-	private int top=-1;
+	//Variable for balance String
+	String output="";
+	//Default constructor
+	public Utility() {
+		// TODO Auto-generated constructor stub
+	}
+	public Utility(String in) 
+	{
+		st = new Stack(in.length());
+	}
 	//Read file
 	public String readFile() 
 	{
@@ -91,6 +102,11 @@ public class Utility
 			e.printStackTrace();
 		}
 		return read;
+	}
+	//@returning double value
+	public double inputDouble() 
+	{
+		return sc.nextDouble();
 	}
 	//Insertion sort for String
 	public void insertionSort(String[] str) 
@@ -226,12 +242,12 @@ public class Utility
 		}
 		return str;
 	}
-	//returning size
+	//returning size linked list
 	public int size()
 	{
 		return size;
 	}
-	//check is empty
+	//check is empty linked list
 	public boolean isEmpty()
 	{
 		return start==null;
@@ -350,36 +366,82 @@ public class Utility
 		    catch ( IOException e)   {}
 		}
 	}
-	//Push an Object Stack type
-	public void push(Object obj,Object [] ele) 
+	//converting BalanceParenthesis
+	public String doTrans(String s) 
 	{
-		if(top == ele.length-1)
-			System.out.println("Stack full....");
-		else{
-			ele[++top]=obj;
-			System.out.println("Pushed Item :"+ele[top]);
-		}
-	}
-	//Return Object Stack type
-	public Object pop(Object[] ele) 
-	{
-		if(top<0)
+		for (int i = 0; i < s.length(); i++) 
 		{
-			System.out.println("Stack under flow");
-			return null;
-		}else{
-			System.out.println("pop item :"+ele[top]);
-			return ele[top--];
+			char c = s.charAt(i);
+			switch (c) 
+			{
+			case '+':
+			case '-':
+				gotOper(c,1);
+				break;
+			case '*':
+			case '/':
+				gotOper(c,2);
+				break;
+			case '(':
+				st.pushItem(c);
+				break;
+			case ')':
+				gotParen(c);
+				break;
+			default:
+				output=output+c;
+				break;
+			}
+		}
+		while(!st.isEmpty())
+		{
+			output=output+st.popItem();
+		}
+		return output;
+	}
+	//BalanceParenthesis 
+	public void gotParen(char c)
+	{
+		while(!st.isEmpty())
+		{
+			char ch=(char) st.popItem();
+			if(ch=='(')
+				break;
+			else
+				output = output+ch;
 		}
 	}
-	//Checking Stack is Empty
-	public boolean stackIsEmpty()
+	//BalanceParenthesis operator
+	public void gotOper(char c, int i) 
 	{
-		return top==-1;
+		while(!st.isEmpty())
+		{
+			char onTop = (char)st.popItem();
+			if(onTop=='(')
+			{
+				st.pushItem(onTop);
+				break;
+			}else{
+				int perc ;
+				if(onTop=='+'||onTop
+						=='-')
+					perc = 1;
+				else
+					perc=2;
+				if(perc<i)
+				{
+					st.pushItem(onTop);
+					break;
+				}else
+					output+=onTop;
+			}
+		}
+		st.pushItem(c);
 	}
-	//return size of stack
-	public int stackSize()
+	public void getBankInfo() 
 	{
-		return top;
+		System.out.println("Welcome to bank please come in queue..."
+				+ "\ncash couter no 1\nrefreshment leave 1pm to 2pm");
 	}
+	
 }
