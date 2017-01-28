@@ -25,7 +25,7 @@ public class PalindromeChecker
 		}
 		for(int i = 0;i<ls.size();i++)
 		{
-			res=res+(char)ls.removeFirst();
+			res=res+(char)ls.removeLast();
 		}
 		if(res.equalsIgnoreCase(word))
 			System.out.println("true");

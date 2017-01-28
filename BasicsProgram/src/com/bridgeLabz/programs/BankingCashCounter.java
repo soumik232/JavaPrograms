@@ -24,7 +24,7 @@ public class BankingCashCounter {
 			aq.enqueue(new Customer(name));
 			System.out.print("\nFor Amount Deposite enter 1:"
 							+"\nFor Amount withDraw enter 2: :");
-			int option = u.inputInteger();
+			int option = new Double(u.inputDouble()).intValue();
 			switch(option)
 			{
 				case 1:

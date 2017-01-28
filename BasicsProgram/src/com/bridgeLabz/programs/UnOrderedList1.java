@@ -15,7 +15,7 @@ import java.util.Arrays;
 import com.bridgeLabz.util.Utility;
 
 public class UnOrderedList1 {
-	public static void main(String[] args) //throws IOException 
+	public static void main(String[] args) throws Exception //throws IOException 
 	{
 		Utility u = new Utility();
 		//reading text file 

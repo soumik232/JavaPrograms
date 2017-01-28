@@ -60,7 +60,9 @@ public class GamblerImpln
 		}
 		System.out.println(win+" times win");
 		System.out.println((times-win)+"times lose");
+		
 		double winPerc= (win*100)/times;
+		
 		System.out.println("Win percentage:"+winPerc);
 		System.out.println("loose percentage: "+(100-winPerc));
 		if(winPerc>50)

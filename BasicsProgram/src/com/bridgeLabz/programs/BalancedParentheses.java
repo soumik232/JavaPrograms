@@ -22,9 +22,9 @@ public class BalancedParentheses {
 		for (int i = 0; i < string.length(); i++)
 		{
 			char c = string.charAt(i);
-			if(c=='('||c=='{')
+			if(c=='(')
 				stk.pushItem(c);
-			else if(c==')'|| c=='}')
+			else if(c==')')
 				stk.popItem();
 		}
 		if(stk.isEmpty())

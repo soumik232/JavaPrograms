@@ -7,10 +7,12 @@ public class Customer implements Serializable
 	private String name;
 	private int accNo;
 	private double amt;
+	
 	public Customer(String name) 
 	{
 		this.name = name;
 	}
+	
 	public int getAccNo() 
 	{
 		return accNo;

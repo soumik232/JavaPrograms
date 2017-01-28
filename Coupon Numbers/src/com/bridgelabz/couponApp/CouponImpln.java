@@ -16,7 +16,7 @@ public class CouponImpln
 		ranCoup = new int[num];
 		
 		int p=1;
-		ranCoup[0]=ran.nextInt(25);
+		ranCoup[0]=ran.nextInt(250);
 		while(p<ranCoup.length)
 		{
 			int n = ran.nextInt(25);
