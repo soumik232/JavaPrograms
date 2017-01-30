@@ -2,6 +2,7 @@ package com.bridgeLabz.util;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,6 +10,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
 import java.util.Scanner;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import com.bridgeLabz.programs.Stack;
 
@@ -694,5 +698,52 @@ public class Utility
 			}
 		}
 		return count;
+	}
+	public void addObject()
+	{
+		JSONObject obj = new JSONObject();
+		JSONArray d = new JSONArray();
+		
+		System.out.println("enter how many data you have");
+		int no = inputInteger();
+		for(int i = 0; i< no ;i++)
+		{
+			JSONObject object = new JSONObject();
+			
+			System.out.println("enter your object");
+			String item = inputString();
+			object.put("item :", item);
+			
+			JSONArray data = new JSONArray();
+			
+			System.out.println("give name for "+item);
+			String name = inputString();
+			data.add("name :" +name);
+			
+			System.out.println("enter weight ");
+			String wet = inputString();
+			data.add("Weight :" + wet);
+			
+			System.out.println("enter price per kg");
+			double price = inputDouble();
+			data.add("price/kg :"+ price);
+			
+			object.put("data List", data );
+			d.add(object);
+		}
+		obj.put("datas", d);
+		
+		try { 
+			System.out.println("Writting JSON into file ..."); 
+			FileWriter jsonFileWriter = new FileWriter("/home/bridgeit/Desktop/my.json");
+				jsonFileWriter.write(obj.toJSONString());
+				jsonFileWriter.flush();
+				jsonFileWriter.close(); 
+				System.out.println("Data Added:"+obj);
+		} 
+			catch (IOException e) 
+		{
+			e.printStackTrace(); 
+		}
 	}
 }
