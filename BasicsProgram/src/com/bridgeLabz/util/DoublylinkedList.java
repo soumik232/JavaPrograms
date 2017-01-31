@@ -4,7 +4,7 @@
  * method add first and last remove first and last, display forward and backward.
  * Checking empty and return size;
  */
-package com.bridgeLabz.programs;
+package com.bridgeLabz.util;
 
 import java.util.NoSuchElementException;
 

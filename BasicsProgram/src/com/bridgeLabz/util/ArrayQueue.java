@@ -1,4 +1,6 @@
-package com.bridgeLabz.programs;
+package com.bridgeLabz.util;
+
+import com.bridgeLabz.programs.Customer;
 
 public class ArrayQueue
 {
