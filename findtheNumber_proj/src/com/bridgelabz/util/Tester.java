@@ -35,7 +35,7 @@ public class Tester
 			 if(check)
 			 {
 				 num = num/2;
-				 high = high-(high/2);
+				 high = high-((high-low+1)/2);
 			 }
 			 else
 			 {
