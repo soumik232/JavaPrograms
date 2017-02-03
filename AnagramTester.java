@@ -3,37 +3,31 @@ class AnagramTester
 {
 	public static void main(String [] args)
 	{
-		Scanner sc = new Scanner(System.in);
-		System.out.println("enter two String");
-		String first = sc.nextLine();
-		String second=sc.nextLine();
-		Anagram a = new Anagram();
-		//Step 1-removing spaces
-		first= a.removeSpc(first);
-		second=a.removeSpc(second);
-		//step-2 cheaking length
-		if(first.length()!=second.length())
+		boolean rs=isPanagram("mother in law", "hitler woman");
+		if(rs)
 		{
-			System.out.println("These two String are not anagram");
-			return;
+			System.out.println("anagram");
 		}
-		//Step-3 Converting lower case.
-		first= a.toLowerCase(first);
-		second=a.toLowerCase(second);
-		//step-4 Shorting character of String
-		first = a.sort(first);
-		second=a.sort(second);
-		//Step-5 Comparing character one by one.
-		char c1[]=first.toCharArray();
-		char c2[]=second.toCharArray();
-		for(int i =0;i<c1.length;i++)
+		else
 		{
-			if(c1[i]!=c2[i])
-			{
-				System.out.println("These two string are not anagram.");
-				return;
-			}
+			System.out.println("not anagram");
 		}
-		System.out.println("yes both are anagram finally...");
-	}
-}
+		
+		boolean isAnagram(String s1,String s2)
+               {
+                String st=s1.toLowerCase().replaceAll(" ","");
+                String st1=s2.toLowerCase().replaceAll(" ","");
+                 char[]c=st.toCharArray();
+                 char[] c1=st1.toCharArray();
+                 if(c.length!=c1.length)
+                 return false;
+                 for(int i=0;i<c.length;i++)
+                 {
+                  if(c[i]!=c1[i])
+                  {
+                   return false;
+                  }
+                 }
+                 return true;
+              }
+
